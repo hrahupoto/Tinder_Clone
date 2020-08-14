@@ -1,0 +1,58 @@
+body {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+main {
+  flex: 1 0 auto;
+}
+
+body > h1 {
+  font-size: xx-large;
+  text-align: center;
+}
+
+.card {
+  width: 40%;
+  margin-right: translate(10%, 0);
+  left: 30%;
+  right: 30%;  
+}
+
+.login_btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 10%;
+}
+
+.login_btn>a{
+  background-color: #ff8a80;
+}
+
+.signup_text {
+  text-align: center;
+  padding-top: 10%;
+}
+
+
+
+.signup_btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 10%;
+}
+
+.signup_btn>a{
+  background-color: #ff8a80;
+}
+
+.page-footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+}

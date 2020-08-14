@@ -1,0 +1,23 @@
+{
+  "name": "tinder_clone",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "express": "*"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hrahupoto/Tinder_Clone.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/hrahupoto/Tinder_Clone/issues"
+  },
+  "homepage": "https://github.com/hrahupoto/Tinder_Clone#readme"
+}
