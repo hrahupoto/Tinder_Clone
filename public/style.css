@@ -20,14 +20,13 @@ body > h1 {
   right: 30%;  
 }
 
-.login_btn {
+.button {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding-top: 10%;
 }
 
-.login_btn>a{
+.button>a{
   background-color: #ff8a80;
 }
 
@@ -36,18 +35,6 @@ body > h1 {
   padding-top: 10%;
 }
 
-
-
-.signup_btn {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding-top: 10%;
-}
-
-.signup_btn>a{
-  background-color: #ff8a80;
-}
 
 .page-footer {
   position: fixed;
