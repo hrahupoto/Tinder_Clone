@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "dependencies": {
-    "express": "*"
+    "express": "*",
+    "mongodb": "*"
   },
   "devDependencies": {},
   "scripts": {

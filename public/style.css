@@ -8,16 +8,24 @@ main {
   flex: 1 0 auto;
 }
 
-body > h1 {
+div > h1 {
   font-size: xx-large;
   text-align: center;
 }
 
+#signup_card{
+width: 40% !important;
+position: sticky !important;
+left: 30%;
+  right: 30%;
+}
+
 .card {
-  width: 40%;
-  margin-right: translate(10%, 0);
+  position: fixed !important;
+  margin: 0rem !important;
+  top: 10%;
   left: 30%;
-  right: 30%;  
+  right: 30%;
 }
 
 .button {
@@ -35,7 +43,6 @@ body > h1 {
   padding-top: 10%;
 }
 
-
 .page-footer {
   position: fixed;
   left: 0;
@@ -43,3 +50,50 @@ body > h1 {
   width: 100%;
   text-align: center;
 }
+
+#content > img{
+  width: 100%;
+  height: 480px;
+}
+
+#item1{
+  font-weight: bold;
+}
+
+#item2{
+  font-weight: bold;
+}
+
+#item3{
+  font-weight: bold;
+}
+
+#add_swips{
+  width:100%;
+}
+
+#droppable_left{ 
+  width: 30%;
+  height: 580px;
+  float:  left;
+  border: 5px solid #73AD21;
+  visibility: hidden;
+}
+
+#droppable_right{ 
+  width: 30%;
+  height: 580px;
+  float: right;
+  border: 5px solid #73AD21;
+  visibility: hidden;
+}
+  
+
+#profile_photo>img{
+  position: relative;
+  top: 50%;
+  left: 50%;
+  width: 220px;
+  height: 240px;
+  margin-top: -10px; /* Half the height */
+  margin-left: -120px;
