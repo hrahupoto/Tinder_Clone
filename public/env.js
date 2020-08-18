@@ -96,9 +96,8 @@ $(document).ready(function () {
     },
     drop: function (event, ui) {
       $(this).addClass("ui-state-highlight").find("p").html("Dropped!");
-      
+
       $("#content").append('<div id="dislike" class="dislike">Dislike!</div>');
-      
 
       $("#content > img").remove();
       $("#dislike").fadeOut(700);
@@ -120,7 +119,7 @@ $(document).ready(function () {
       $(this).addClass("ui-state-highlight").find("p").html("Dropped!");
       $("#content").append('<div id="like" class="like">Like!</div>');
       $("#content > img").remove();
-      
+
       $("#like").fadeOut(700);
       setTimeout(function () {
         var img = $('<img id="dynamic">');
