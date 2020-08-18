@@ -2,16 +2,13 @@
   <head>
     <title>SIT725</title>
 
-
     <link rel="stylesheet" href="./style.css" />
 
     <script>
-    
-    if(sessionStorage.getItem("user_Session")!=="logged-in"){
-      window.location.href ="./index.html"
-    alert("Not Logged-in")
-    }
-    
+      if (sessionStorage.getItem("user_Session") !== "logged-in") {
+        window.location.href = "./index.html";
+        alert("Not Logged-in");
+      }
     </script>
 
     <script
@@ -20,9 +17,11 @@
       crossorigin="anonymous"
     ></script>
 
-  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-  
-  <!-- Compiled and minified CSS -->
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- Compiled and minified CSS -->
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
@@ -50,32 +49,39 @@
       <div id="droppable_left" class="ui-widget-header">
         <p>Drop me left</p>
       </div>
-      
 
       <div id="droppable_right" class="ui-widget-header">
         <p>Drop me right</p>
-      </div>  
-    </div>
-    
-    
-    <div class="card">
-      
-        <div class="card-tabs">
-          <ul class="tabs tabs-fixed-width">
-            <li class="tab"><a id="matches" class="active" href="#content">Matches</a></li>
-            <li class="tab"><a id="profile" href="#userdetails">User Profile</a></li>
-          </ul>
-        </div>
-        <div class="card-content grey lighten-4">
-          <div id="profile_photo">
-            <img src="./images/photo.jpeg" alt="" class="circle responsive-img"> <!-- notice the "circle" class -->
-          </div>
-          <div id="content"><img></div>
-          <div id="userdetails"></div>
-        </div>
       </div>
-    
-    
+    </div>
+
+    <div class="card">
+      <div class="card-tabs">
+        <ul class="tabs tabs-fixed-width">
+          <li class="tab">
+            <a id="matches" class="active" href="#content">Matches</a>
+          </li>
+          <li class="tab">
+            <a id="profile" href="#userdetails">User Profile</a>
+          </li>
+        </ul>
+      </div>
+      <div class="card-content grey lighten-4">
+        <div id="profile_photo">
+          <img src="./images/User_1.jpg" alt="" class="circle responsive-img" />
+          <!-- notice the "circle" class -->
+        </div>
+        <!-- <div id="add_btn">
+          <a id="btn-floating" class="btn-floating btn-large waves-effect waves-light red"
+            ><i class="material-icons">add</i></a
+          >
+        </div> -->
+
+        <div id="content"><img/></div>
+        <div id="userdetails"></div>
+      </div>
+    </div>
+
     <footer class="page-footer">
       <div class="footer-copyright">
         <div class="container">
@@ -86,7 +92,7 @@
     </footer>
     <script>
       document.getElementById("profile_photo").style.display = "none";
-    
+      //document.getElementById("add_btn").style.display = "none";
     </script>
   </body>
 </html>
