@@ -1,0 +1,160 @@
+<html>
+  <head>
+    <title>SIT725</title>
+
+    <link rel="stylesheet" href="./style.css" />
+
+    <script>
+      //     if (sessionStorage.getItem("user_Session") !== "logged-in"||sessionStorage.getItem("user_Session_1") !== "logged-in") {
+      //     window.location.href = "./index.html";
+      //     alert("Not Logged-in");
+      //   }
+    </script>
+
+    <script
+      src="https://code.jquery.com/jquery-3.5.1.min.js"
+      integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
+      crossorigin="anonymous"
+    ></script>
+
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+    <!-- Compiled and minified CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
+    />
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="env.js"></script>
+  </head>
+  <body>
+    <nav>
+      <div class="nav-wrapper">
+        <a href="#" class="brand-logo center">Tinder</a>
+        <!-- <ul id="nav-mobile" class="left hide-on-med-and-down">
+          <li><a href="sass.html">Sass</a></li>
+          <li><a href="badges.html">Components</a></li>
+          <li><a href="collapsible.html">JavaScript</a></li>
+        </ul> 
+    -->
+      </div>
+    </nav>
+
+    <div id="parent_div">
+      <div id="div_1">
+        <div class="card_1">
+          <div class="card-tabs">
+            <ul class="tabs tabs-fixed-width">
+              <li class="tab">
+                <a id="matches_1" class="active" href="#content_1">Matched</a>
+              </li>
+              <li class="tab">
+                <a id="profile_1" href="#userdetails_1">User Profile</a>
+              </li>
+            </ul>
+          </div>
+          <div class="card-content grey lighten-4">
+            <div id="profile_photo_1">
+              <img id="photo_1" alt="" class="circle responsive-img" />
+              <!-- notice the "circle" class -->
+            </div>
+            <!-- <div id="add_btn">
+                <a id="btn-floating" class="btn-floating btn-large waves-effect waves-light red"
+                  ><i class="material-icons">add</i></a
+                >
+              </div> -->
+
+            <div id="content_1">
+              <img id="dynamic_1" src="./images/user1.jpg" />
+            </div>
+            <div id="userdetails_1"></div>
+          </div>
+        </div>
+      </div>
+
+      <div id="div_2">
+        <div class="card_2">
+          <div class="card-tabs">
+            <ul class="tabs tabs-fixed-width">
+              <li class="tab">
+                <a id="matches_2" class="active" href="#content_2">Matched</a>
+              </li>
+              <li class="tab">
+                <a id="profile_2" href="#userdetails_2">User Profile</a>
+              </li>
+            </ul>
+          </div>
+          <div class="card-content grey lighten-4">
+            <div id="profile_photo_2">
+              <img id="photo_2" alt="" class="circle responsive-img" />
+              <!-- notice the "circle" class -->
+            </div>
+            <!-- <div id="add_btn">
+                <a id="btn-floating" class="btn-floating btn-large waves-effect waves-light red"
+                  ><i class="material-icons">add</i></a
+                >
+              </div> -->
+
+            <div id="content_2">
+              <img id="dynamic_2" src="./images/user1.jpg" />
+            </div>
+            <div id="userdetails_2"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <footer class="page-footer">
+      <div class="footer-copyright">
+        <div class="container">
+          © 2020 Sample
+          <a class="grey-text text-lighten-4 right"></a>
+        </div>
+      </div>
+    </footer>
+    <script>
+      document.getElementById("profile_photo_1").style.display = "none";
+      document.getElementById("profile_photo_2").style.display = "none";
+      $("#userdetails_1").html(
+        "<ul class='collection'><li id='item_1' class='collection-item'></li><li id='item_2' class='collection-item'></li><li id='item_3' class='collection-item'></li></ul>"
+      );
+
+      var users = ["1", "2", "3", "4", "5", "6"];
+      var user_One=localStorage.getItem("user_One");
+      var user_Two=localStorage.getItem("user_Two");
+      document.getElementById("item_1").innerHTML = "First Name: " + "user"+user_One;
+      document.getElementById("item_2").innerHTML = "Last Name: " + "test";
+      document.getElementById("item_3").innerHTML =
+        "Email: " + "user"+user_One+"@gmail.com";
+      document
+        .getElementById("photo_1")
+        .setAttribute("src", "./images/user"+user_One+".jpg");
+      document
+        .getElementById("dynamic_1")
+        .setAttribute("src", "./images/user"+user_One+".jpg");
+
+      $("#userdetails_2").html(
+        "<ul class='collection'><li id='item_4' class='collection-item'></li><li id='item_5' class='collection-item'></li><li id='item_6' class='collection-item'></li></ul>"
+      );
+
+      document.getElementById("item_4").innerHTML = "First Name: " + "user"+user_Two;
+      document.getElementById("item_5").innerHTML = "Last Name: " + "test";
+      document.getElementById("item_6").innerHTML =
+        "Email: " + "user"+user_Two+"@gmail.com";
+      document
+        .getElementById("photo_2")
+        .setAttribute("src", "./images/user"+user_Two+".jpg");
+      document
+        .getElementById("dynamic_2")
+        .setAttribute("src", "./images/user"+user_Two+".jpg");
+
+      document.getElementById("profile_photo_1").style.display = "none";
+      document.getElementById("profile_photo_2").style.display = "none";
+      document.getElementById("userdetails_1").style.display = "none";
+      document.getElementById("userdetails_2").style.display = "none";
+      document.getElementById("profile_photo_2").style.display = "none";
+    </script>
+  </body>
+</html>

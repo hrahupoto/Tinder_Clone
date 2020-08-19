@@ -9,6 +9,8 @@
         window.location.href = "./index.html";
         alert("Not Logged-in");
       }
+      var count = 0;
+      localStorage.setItem("count", count);
     </script>
 
     <script
@@ -20,7 +22,10 @@
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
     <!--Import Google Icon Font-->
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
     <!-- Compiled and minified CSS -->
     <link
       rel="stylesheet"
@@ -29,8 +34,6 @@
 
     <!-- Compiled and minified JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-    <script src="env.js"></script>
-    <!--Let browser know website is optimized for mobile-->
   </head>
   <body>
     <nav>
@@ -68,7 +71,7 @@
       </div>
       <div class="card-content grey lighten-4">
         <div id="profile_photo">
-          <img src="./images/User_1.jpg" alt="" class="circle responsive-img" />
+          <img id="photo" alt="" class="circle responsive-img" />
           <!-- notice the "circle" class -->
         </div>
         <!-- <div id="add_btn">
@@ -77,22 +80,43 @@
           >
         </div> -->
 
-        <div id="content"><img/></div>
+        <div id="content"><img id="dynamic" src="" /></div>
         <div id="userdetails"></div>
+        <div class="button"><a id="reset_btn" class="waves-effect waves-light btn">Data Reset</a></div>
       </div>
     </div>
 
     <footer class="page-footer">
       <div class="footer-copyright">
         <div class="container">
-          © 2014 Copyright Text
-          <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
+          © 2020 Sample
+          <a class="grey-text text-lighten-4 right"></a>
         </div>
       </div>
     </footer>
     <script>
       document.getElementById("profile_photo").style.display = "none";
+      document.getElementById("reset_btn").style.display = "none";
       //document.getElementById("add_btn").style.display = "none";
+      profile_photo = sessionStorage.getItem("profilePhoto");
+
+      var imgArray = [
+        "./images/user1.jpg",
+        "./images/user2.jpg",
+        "./images/user3.jpg",
+        "./images/user4.jpg",
+        "./images/user5.jpg",
+        "./images/user6.jpg",
+      ];
+      for (var i = 0; i <= 5; i++) {
+        if (imgArray[i] !== profile_photo) {
+          document
+            .getElementById("dynamic")
+            .setAttribute("src", imgArray[i]);
+          break;
+        }
+      }
     </script>
+    <script src="env.js"></script>
   </body>
 </html>
