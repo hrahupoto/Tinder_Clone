@@ -79,8 +79,6 @@ $(document).ready(function () {
     document
       .getElementById("photo")
       .setAttribute("src", sessionStorage.getItem("profilePhoto"));
-    //   },
-    // });
   });
 });
 
@@ -90,7 +88,6 @@ $(document).ready(function () {
     document.getElementById("userdetails").style.display = "none";
     document.getElementById("profile_photo").style.display = "none";
     document.getElementById("reset_btn").style.display = "none";
-    //document.getElementById("add_btn").style.display = "none";
   });
 });
 
@@ -129,26 +126,29 @@ $(document).ready(function () {
   var dl = 0;
   var like = [];
   var dislike = [];
-  //var resetIteration;
 
-  profile_photo = sessionStorage.getItem("profilePhoto");
-  current_picture = document.getElementById("dynamic").getAttribute("src");
-  var imgArray = [
-    "./images/user1.jpg",
-    "./images/user2.jpg",
-    "./images/user3.jpg",
-    "./images/user4.jpg",
-    "./images/user5.jpg",
-    "./images/user6.jpg",
-  ];
+  try {
+    profile_photo = sessionStorage.getItem("profilePhoto");
+    current_picture = document.getElementById("dynamic").getAttribute("src");
+    var imgArray = [
+      "./images/user1.jpg",
+      "./images/user2.jpg",
+      "./images/user3.jpg",
+      "./images/user4.jpg",
+      "./images/user5.jpg",
+      "./images/user6.jpg",
+    ];
 
-  for (var i = 0; i <= 5; i++) {
-    if (
-      !imgArray[i].includes(profile_photo) &&
-      !imgArray[i].includes(current_picture)
-    ) {
-      img_new[j++] = imgArray[i];
+    for (var i = 0; i <= 5; i++) {
+      if (
+        !imgArray[i].includes(profile_photo) &&
+        !imgArray[i].includes(current_picture)
+      ) {
+        img_new[j++] = imgArray[i];
+      }
     }
+  } catch (error) {
+    console.log(error);
   }
 
   $("#content").draggable({ revert: "valid" });
@@ -164,7 +164,7 @@ $(document).ready(function () {
       current_picture = document.getElementById("dynamic").getAttribute("src");
 
       if (img_new[count] == undefined) {
-        $("#content").remove();
+        //$("#content").detach();
         setTimeout(function () {
           $.ajax({
             type: "GET",
@@ -191,7 +191,6 @@ $(document).ready(function () {
                   }
                 }
                 for (var i = 0; i < like.length; i++) {
-                  // if (data.usersLikes[6].firstUser[0] == like[i]) {
                   if (data.usersLikes[6].firstUser[0] == like[i]) {
                     console.log(
                       "User " +
@@ -200,10 +199,8 @@ $(document).ready(function () {
                         tempVar
                     );
                   }
-                  // }
                 }
                 for (var j = 0; j < previousUserLikes.length; j++) {
-                  // if (tempVar == previousUserLikes[j]) {
                   if (tempVar == previousUserLikes[j]) {
                     console.log(
                       "User " +
@@ -212,7 +209,6 @@ $(document).ready(function () {
                         data.usersLikes[6].firstUser[0]
                     );
                   }
-                  // }
                 }
 
                 if (
@@ -230,15 +226,41 @@ $(document).ready(function () {
                       tempVar +
                       " is liked by User " +
                       data.usersLikes[6].firstUser[0]
-
-                      
                   );
+                  var whoLikesWho =
+                    "You Have Been Matched!\n" +
+                    "User " +
+                    data.usersLikes[6].firstUser[0] +
+                    " is liked by User " +
+                    tempVar +
+                    "\n" +
+                    "User " +
+                    tempVar +
+                    " is liked by User " +
+                    data.usersLikes[6].firstUser[0];
+
+                  $.ajax({
+                    type: "GET",
+                    url: "/sendEmail",
+                    data: { whoLikesWho },
+                    success: function (data) {
+                      alert(data);
+                    },
+
+                    error: function () {},
+                  });
+
+                  localStorage.setItem(
+                    "user_One",
+                    data.usersLikes[6].firstUser[0]
+                  );
+                  localStorage.setItem("user_Two", tempVar);
                   window.location.href = "./match.html";
-                  localStorage.setItem("user_One",data.usersLikes[6].firstUser[0]);
-                  localStorage.setItem("user_Two",tempVar);
+                  var str =
+                    "You have been Emailed!\n Check Your Inboxes\n First User Email: ut9614529@gmail.com\n Second User Email: ut63620@gmail.com\n Use Password: !Q@W3e4r to Login";
+
+                  alert(str);
                 }
-      
-                
               }
             },
 
@@ -285,7 +307,7 @@ $(document).ready(function () {
       current_picture = document.getElementById("dynamic").getAttribute("src");
 
       if (img_new[count] == undefined) {
-        $("#content").remove();
+        //$("#content").detach();
         setTimeout(function () {
           $.ajax({
             type: "GET",
@@ -312,7 +334,6 @@ $(document).ready(function () {
                   }
                 }
                 for (var i = 0; i < like.length; i++) {
-                  // if (data.usersLikes[6].firstUser[0] == like[i]) {
                   if (data.usersLikes[6].firstUser[0] == like[i]) {
                     console.log(
                       "User " +
@@ -321,10 +342,8 @@ $(document).ready(function () {
                         tempVar
                     );
                   }
-                  // }
                 }
                 for (var j = 0; j < previousUserLikes.length; j++) {
-                  // if (tempVar == previousUserLikes[j]) {
                   if (tempVar == previousUserLikes[j]) {
                     console.log(
                       "User " +
@@ -333,7 +352,6 @@ $(document).ready(function () {
                         data.usersLikes[6].firstUser[0]
                     );
                   }
-                  // }
                 }
 
                 if (
@@ -351,12 +369,39 @@ $(document).ready(function () {
                       tempVar +
                       " is liked by User " +
                       data.usersLikes[6].firstUser[0]
-
-                      
                   );
+
+                  var whoLikesWho =
+                    "You Have Been Matched!\n" +
+                    "User " +
+                    data.usersLikes[6].firstUser[0] +
+                    " is liked by User " +
+                    tempVar +
+                    "\n" +
+                    "User " +
+                    tempVar +
+                    " is liked by User " +
+                    data.usersLikes[6].firstUser[0];
+
+                  $.ajax({
+                    type: "GET",
+                    url: "/sendEmail",
+                    data: { whoLikesWho },
+                    success: function () {},
+
+                    error: function () {},
+                  });
+
+                  localStorage.setItem(
+                    "user_One",
+                    data.usersLikes[6].firstUser[0]
+                  );
+                  localStorage.setItem("user_Two", tempVar);
                   window.location.href = "./match.html";
-                  localStorage.setItem("user_One",data.usersLikes[6].firstUser[0]);
-                  localStorage.setItem("user_Two",tempVar);
+                  var str =
+                    "You have been Emailed!\n Check Your Inboxes\n First User Email: ut9614529@gmail.com\n Second User Email: ut63620@gmail.com\n Use Password: !Q@W3e4r to Login";
+                 
+                  alert(str);
                 }
               }
             },
